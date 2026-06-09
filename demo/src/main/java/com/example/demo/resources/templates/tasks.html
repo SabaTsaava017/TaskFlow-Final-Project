@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TaskFlow</title>
+</head>
+<body>
+
+<h1>Task Manager</h1>
+
+<form method="post" action="/tasks">
+    <input name="title" placeholder="Title">
+    <button>Add</button>
+</form>
+
+<ul>
+    <li th:each="t : ${tasks}">
+        <span th:text="${t.title}"></span>
+        <a th:href="@{'/tasks/delete/' + ${t.id}}">Delete</a>
+    </li>
+</ul>
+
+</body>
+</html>
